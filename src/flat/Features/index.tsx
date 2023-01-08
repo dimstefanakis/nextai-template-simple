@@ -7,11 +7,12 @@ import {
   Text,
   Heading,
   SimpleGrid,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 export default function Features() {
   return (
-    <Box bg={"gray.800"} position={"relative"}>
+    <Box position={"relative"}>
       <Flex
         flex={1}
         zIndex={0}
@@ -26,7 +27,7 @@ export default function Features() {
         right={0}
       >
         <Flex
-          bgGradient={"linear(to-r, gray.800 10%, transparent)"}
+          bgGradient={"linear(to-l, gray.300 10%, transparent)"}
           w={"full"}
           h={"full"}
         />
@@ -35,7 +36,6 @@ export default function Features() {
         <Stack direction={{ base: "column", lg: "row" }}>
           <Stack
             flex={1}
-            color={"gray.400"}
             justify={{ lg: "center" }}
             py={{ base: 4, md: 20, xl: 60 }}
           >
@@ -46,18 +46,17 @@ export default function Features() {
                 textTransform={"uppercase"}
                 mb={3}
                 fontSize={"xl"}
-                color={"gray.500"}
               >
                 Technology
               </Text>
               <Heading
-                color={"white"}
+                color={useColorModeValue("gray.700", "gray.50")}
                 mb={5}
                 fontSize={{ base: "3xl", md: "5xl" }}
               >
                 21st century agriculture
               </Heading>
-              <Text fontSize={"xl"} color={"gray.400"}>
+              <Text fontSize={"xl"}>
                 The NewLife™ technology allows you to monitor your crops and get
                 complete insights at real time. The proprietary
                 software/hardware ecosystem prevents your plants from getting
@@ -71,7 +70,7 @@ export default function Features() {
                   <Text
                     fontFamily={"heading"}
                     fontSize={"3xl"}
-                    color={"white"}
+                    color={"black"}
                     mb={3}
                   >
                     {stat.title}
@@ -91,7 +90,11 @@ export default function Features() {
 }
 
 const StatsText = ({ children }: { children: ReactNode }) => (
-  <Text as={"span"} fontWeight={700} color={"white"}>
+  <Text
+    as={"span"}
+    fontWeight={700}
+    color={useColorModeValue("gray.700", "gray.50")}
+  >
     {children}
   </Text>
 );
