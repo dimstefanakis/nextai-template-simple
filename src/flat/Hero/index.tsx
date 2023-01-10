@@ -14,7 +14,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-export default function Home() {
+export default function Home({data}: any) {
   return (
     <Container maxW={"7xl"}>
       <Stack
@@ -29,7 +29,7 @@ export default function Home() {
             fontWeight={600}
             fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
           >
-            <Text
+            {/* <Text
               as={"span"}
               position={"relative"}
               _after={{
@@ -48,13 +48,25 @@ export default function Home() {
             <br />
             <Text as={"span"} color={"red.400"}>
               use everywhere!
+            </Text> */}
+            <Text
+              as={"span"}
+              position={"relative"}
+              _after={{
+                content: "''",
+                width: "full",
+                height: "30%",
+                position: "absolute",
+                bottom: 1,
+                left: 0,
+                bg: "red.400",
+                zIndex: -1,
+              }}
+            >
+              {data.copy.hero.header}
             </Text>
           </Heading>
-          <Text color={"gray.500"}>
-            Snippy is a rich coding snippets app that lets you create your own
-            code snippets, categorize them, and even sync them in the cloud so
-            you can use them anywhere. All that is free!
-          </Text>
+          <Text color={"gray.500"}>{data.copy.hero.subheader}</Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: "column", sm: "row" }}

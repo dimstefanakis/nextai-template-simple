@@ -59,8 +59,7 @@ interface TestimonialCardProps {
   index: number;
 }
 
-function TestimonialCard(props: TestimonialCardProps) {
-  const { name, role, content, avatar, index } = props;
+function TestimonialCard({data, index}: {data: any; index: number}) {
   return (
     <Flex
       boxShadow={"lg"}
@@ -108,31 +107,31 @@ function TestimonialCard(props: TestimonialCardProps) {
           fontSize={"15px"}
           pb={4}
         >
-          {content}
+          {data.text}
         </chakra.p>
         <chakra.p fontWeight={"bold"} fontSize={14}>
-          {name}
+          {data.person.name}
           <chakra.span
             fontWeight={"medium"}
             color={"gray.500"}
           >
             {" "}
-            - {role}
+            - {data.person.role}
           </chakra.span>
         </chakra.p>
       </Flex>
-      <Avatar
+      {/* <Avatar
         src={avatar}
         height={"80px"}
         width={"80px"}
         alignSelf={"center"}
         m={{ base: "0 0 35px 0", md: "0 0 0 50px" }}
-      />
+      /> */}
     </Flex>
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({data}: {data: any}) {
   return (
     <Flex
       textAlign={"center"}
@@ -156,9 +155,9 @@ export default function Testimonials() {
           fontWeight={"bold"}
           color={useColorModeValue("gray.700", "gray.50")}
         >
-          You are in good company
+          {data.copy.testimonials.title}
         </chakra.h1>
-        <chakra.h2
+        {/* <chakra.h2
           margin={"auto"}
           width={"70%"}
           fontWeight={"medium"}
@@ -169,6 +168,14 @@ export default function Testimonials() {
             150,000+
           </chakra.strong>{" "}
           influencers use EEZY to manage their social media content!
+        </chakra.h2> */}
+        <chakra.h2
+          margin={"auto"}
+          width={"70%"}
+          fontWeight={"medium"}
+          color={useColorModeValue("gray.500", "gray.400")}
+        >
+          {data.copy.testimonials.description}
         </chakra.h2>
       </Box>
       <SimpleGrid
@@ -177,9 +184,11 @@ export default function Testimonials() {
         mt={16}
         mx={"auto"}
       >
-        {testimonials.map((cardInfo, index) => (
-          <TestimonialCard key={index} {...cardInfo} index={index} />
-        ))}
+        {data.copy.testimonials.testimonial_items.map(
+          (testimonial: any, index: number) => (
+            <TestimonialCard key={index} data={testimonial} index={index} />
+          )
+        )}
       </SimpleGrid>
       <Box>
         <Icon viewBox="0 0 40 35" mt={14} boxSize={10} color={"purple.400"}>
