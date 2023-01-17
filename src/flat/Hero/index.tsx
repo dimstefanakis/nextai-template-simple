@@ -13,6 +13,7 @@ import {
   IconProps,
   useColorModeValue,
 } from "@chakra-ui/react";
+import addAlpha from "../../utils/addAlpha";
 
 export default function Home({data}: any) {
   return (
@@ -59,7 +60,7 @@ export default function Home({data}: any) {
                 position: "absolute",
                 bottom: 1,
                 left: 0,
-                bg: "red.400",
+                bg: data.color_scheme.primary,
                 zIndex: -1,
               }}
             >
@@ -76,8 +77,8 @@ export default function Home({data}: any) {
               size={"lg"}
               fontWeight={"normal"}
               px={6}
-              colorScheme={"red"}
-              bg={"red.400"}
+              // colorScheme={"red"}
+              bg={data.color_scheme.primary}
               _hover={{ bg: "red.500" }}
             >
               Get started
@@ -107,7 +108,10 @@ export default function Home({data}: any) {
             top={"-20%"}
             left={0}
             zIndex={-1}
-            color={useColorModeValue("red.50", "red.400")}
+            color={useColorModeValue(
+              addAlpha(data.color_scheme.primary, 0.1),
+              data.color_scheme.primary
+            )}
           />
           <Box
             position={"relative"}
@@ -117,7 +121,7 @@ export default function Home({data}: any) {
             width={"full"}
             overflow={"hidden"}
           >
-            <IconButton
+            {/* <IconButton
               aria-label={"Play Button"}
               variant={"ghost"}
               _hover={{ bg: "transparent" }}
@@ -128,7 +132,7 @@ export default function Home({data}: any) {
               left={"50%"}
               top={"50%"}
               transform={"translateX(-50%) translateY(-50%)"}
-            />
+            /> */}
             <Image
               alt={"Hero Image"}
               fit={"cover"}
@@ -136,7 +140,8 @@ export default function Home({data}: any) {
               w={"100%"}
               h={"100%"}
               src={
-                "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
+                data.images.hero_prompt
+                // "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
               }
             />
           </Box>

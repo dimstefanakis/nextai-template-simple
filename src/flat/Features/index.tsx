@@ -17,7 +17,7 @@ export default function Features({data}: any) {
         flex={1}
         zIndex={0}
         display={{ base: "none", lg: "flex" }}
-        backgroundImage="url('/templates/stats-grid-with-image.png')"
+        backgroundImage={`url('${data.images.features_prompt}')`}
         backgroundSize={"cover"}
         backgroundPosition="center"
         backgroundRepeat="no-repeat"

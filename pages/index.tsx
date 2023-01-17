@@ -13,15 +13,15 @@ export default function Home() {
       `${process.env.NEXT_PUBLIC_API_URL}/v1/generate_website`,
       {
         prompt:
-          "A burger house for 40 year old mothers"
-          // "A mentoring application to help learners gain knowledge to specific and customized learning topics with the promotion of interactivity between instructors and students while also facilitating collaborative work.",
+          "A mentoring application to help learners gain knowledge to specific and customized learning topics with the promotion of interactivity between instructors and students while also facilitating collaborative work.",
+        // "A mentoring application to help learners gain knowledge to specific and customized learning topics with the promotion of interactivity between instructors and students while also facilitating collaborative work.",
       }
     );
     setData(response.data);
   }
 
   useEffect(() => {
-    // getData();
+    getData();
   }, []);
 
   return (
