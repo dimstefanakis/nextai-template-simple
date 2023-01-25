@@ -13,6 +13,7 @@ import {
   Avatar,
   AvatarGroup,
   useBreakpointValue,
+  useToast,
   IconProps,
   Icon,
 } from "@chakra-ui/react";
@@ -52,6 +53,7 @@ type Inputs = {
 };
 
 export default function Landing() {
+  const toast = useToast();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const setData = useGenerationStore((state: any) => state.setGeneratedData);
@@ -79,17 +81,25 @@ export default function Landing() {
   };
 
   async function onSubmit(data: Inputs) {
-    setLoading(true);
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/v1/generate_website`,
-      {
-        prompt: data.appDescription,
-        image_prompt: data.imageDescription,
-      }
-    );
-    setData(response.data);
-    setLoading(false);
+    // add toast
+    toast({
+      title: "We are at capacity",
+      description: "We are currently at capacity. Please try again later.",
+      status: "info",
+      duration: 9000,
+      isClosable: true,
+      position: "top",
+    });
+    // setLoading(true);
+    // const response = await axios.post(
+    //   `${process.env.NEXT_PUBLIC_API_URL}/v1/generate_website`,
+    //   {
+    //     prompt: data.appDescription,
+    //     image_prompt: data.imageDescription,
+    //   }
+    // );
     // setData(response.data);
+    // setLoading(false);
   }
 
   useEffect(() => {
