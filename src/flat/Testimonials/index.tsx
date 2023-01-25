@@ -136,12 +136,12 @@ export default function Testimonials({ data }: { data: any }) {
   return (
     <Flex
       textAlign={"center"}
-      pt={10}
+      pt={20}
       justifyContent={"center"}
       direction={"column"}
       width={"full"}
     >
-      <Box width={{ base: "full", sm: "lg", lg: "xl" }} margin={"auto"}>
+      <Container width={{ base: "full", sm: "lg", lg: "xl" }} margin={"auto"}>
         <chakra.h3
           fontWeight={"bold"}
           fontSize={20}
@@ -178,7 +178,7 @@ export default function Testimonials({ data }: { data: any }) {
         >
           {data.copy.testimonials.description}
         </chakra.h2>
-      </Box>
+      </Container>
       <SimpleGrid
         columns={{ base: 1, xl: 2 }}
         spacing={"20"}

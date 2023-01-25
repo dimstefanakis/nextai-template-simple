@@ -21,16 +21,18 @@ export default function Features({data}: any) {
         backgroundSize={"cover"}
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
+        borderTopLeftRadius={'xl'}
+        borderBottomLeftRadius={'xl'}
         position={"absolute"}
-        width={"50%"}
+        width={"45%"}
         insetY={0}
         right={0}
       >
-        <Flex
+        {/* <Flex
           bgGradient={"linear(to-l, gray.300 10%, transparent)"}
           w={"full"}
           h={"full"}
-        />
+        /> */}
       </Flex>
       <Container maxW={"7xl"} zIndex={10} position={"relative"}>
         <Stack direction={{ base: "column", lg: "row" }}>

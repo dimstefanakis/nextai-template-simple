@@ -14,6 +14,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import addAlpha from "../../utils/addAlpha";
+import EditWrapper from "../../features/EditWrapper";
 
 export default function Home({data}: any) {
   return (
@@ -21,6 +22,7 @@ export default function Home({data}: any) {
       <Stack
         align={"center"}
         spacing={{ base: 8, md: 10 }}
+        h={{ base: "auto", md: "100vh" }}
         py={{ base: 20, md: 28 }}
         direction={{ base: "column", md: "row" }}
       >
@@ -50,22 +52,24 @@ export default function Home({data}: any) {
             <Text as={"span"} color={"red.400"}>
               use everywhere!
             </Text> */}
-            <Text
-              as={"span"}
-              position={"relative"}
-              _after={{
-                content: "''",
-                width: "full",
-                height: "30%",
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                bg: data.color_scheme.primary,
-                zIndex: -1,
-              }}
-            >
-              {data.copy.hero.header}
-            </Text>
+            <EditWrapper>
+              <Text
+                as={"span"}
+                position={"relative"}
+                _after={{
+                  content: "''",
+                  width: "full",
+                  height: "30%",
+                  position: "absolute",
+                  bottom: 1,
+                  left: 0,
+                  bg: data.color_scheme.primary,
+                  zIndex: -1,
+                }}
+              >
+                {data.copy.hero.header}
+              </Text>
+            </EditWrapper>
           </Heading>
           <Text color={"gray.500"}>{data.copy.hero.subheader}</Text>
           <Stack

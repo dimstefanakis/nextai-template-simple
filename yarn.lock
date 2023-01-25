@@ -269,6 +269,20 @@
   dependencies:
     "@chakra-ui/shared-utils" "2.0.4"
 
+"@chakra-ui/icon@3.0.16":
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icon/-/icon-3.0.16.tgz#6413ec637c0c3acc204301485f05451b5bcd6ba4"
+  integrity sha512-RpA1X5Ptz8Mt39HSyEIW1wxAz2AXyf9H0JJ5HVx/dBdMZaGMDJ0HyyPBVci0m4RCoJuyG1HHG/DXJaVfUTVAeg==
+  dependencies:
+    "@chakra-ui/shared-utils" "2.0.5"
+
+"@chakra-ui/icons@^2.0.17":
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-2.0.17.tgz#625a46d169707aad36d65c04a4626a422f92e5ae"
+  integrity sha512-HMJP0WrJgAmFR9+Xh/CBH0nVnGMsJ4ZC8MK6tMgxPKd9/muvn0I4hsicHqdPlLpmB0TlxlhkBAKaVMtOdz6F0w==
+  dependencies:
+    "@chakra-ui/icon" "3.0.16"
+
 "@chakra-ui/image@2.0.13":
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/@chakra-ui/image/-/image-2.0.13.tgz#adc8bc97a65ef15491d7abfa7e4aa31debb3e4c1"
@@ -668,6 +682,11 @@
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@chakra-ui/shared-utils/-/shared-utils-2.0.4.tgz#8661f2b48dd93d04151b10a894a4290c9d9a080c"
   integrity sha512-JGWr+BBj3PXGZQ2gxbKSD1wYjESbYsZjkCeE2nevyVk4rN3amV1wQzCnBAhsuJktMaZD6KC/lteo9ou9QUDzpA==
+
+"@chakra-ui/shared-utils@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/shared-utils/-/shared-utils-2.0.5.tgz#cb2b49705e113853647f1822142619570feba081"
+  integrity sha512-4/Wur0FqDov7Y0nCXl7HbHzCg4aq86h+SXdoUeuCMD3dSj7dpsVnStLYhng1vxvlbUnLpdF4oz5Myt3i/a7N3Q==
 
 "@chakra-ui/skeleton@2.0.21":
   version "2.0.21"
@@ -2941,6 +2960,11 @@ react-focus-lock@^2.9.1:
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
 
+react-hook-form@^7.42.1:
+  version "7.42.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.42.1.tgz#c6396ca684716d89abc1c7e64343badfd30c56c6"
+  integrity sha512-2UIGqwMZksd5HS55crTT1ATLTr0rAI4jS7yVuqTaoRVDhY2Qc4IyjskCmpnmdYqUNOYFy04vW253tb2JRVh+IQ==
+
 react-icons@^4.7.1:
   version "4.7.1"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.7.1.tgz#0f4b25a5694e6972677cb189d2a72eabea7a8345"
@@ -3342,6 +3366,11 @@ use-sidecar@^1.1.2:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
+use-sync-external-store@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
+  integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
+
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"
@@ -3396,3 +3425,10 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zustand@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.3.2.tgz#bb121fcad84c5a569e94bd1a2695e1a93ba85d39"
+  integrity sha512-rd4haDmlwMTVWVqwvgy00ny8rtti/klRoZjFbL/MAcDnmD5qSw/RZc+Vddstdv90M5Lv6RPgWvm1Hivyn0QgJw==
+  dependencies:
+    use-sync-external-store "1.2.0"
