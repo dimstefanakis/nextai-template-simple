@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -8,17 +8,24 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
+import { useWebsiteStore } from "../../store/websiteStore";
 
 // this is a component that when hovered over, shows a pencil icon on the top right corner
 
 type EditWrapperProps = {
   children: JSX.Element;
+  editingKey: string;
   onEdit?: () => void;
 };
 
 function EditWrapper({ children, ...props }: EditWrapperProps) {
+  const { editingKey } = props;
   const [isEditing, setIsEditing] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const setEditingKey = useWebsiteStore((state: any) => state.setEditingKey);
+  const saveWebsiteData = useWebsiteStore(
+    (state: any) => state.saveWebsiteData
+  );
   const { colorMode } = useColorMode();
   const bg = useColorModeValue("white", "gray.800");
   const color = useColorModeValue("gray.800", "white");
@@ -31,20 +38,36 @@ function EditWrapper({ children, ...props }: EditWrapperProps) {
   const editIconBg = useColorModeValue("white", "gray.900");
   const editIconHoverBg = useColorModeValue("gray.100", "gray.800");
 
-  // edit controls should only show up on hover and not move the content around
+  useEffect(() => {
+    if (isEditing) {
+      setEditingKey(editingKey);
+    } else {
+      setEditingKey(null);
+    }
+  }, [isEditing]);
+
+  function handleMouseLeave() {
+    setIsHovering(false);
+    setIsEditing(false);
+    saveWebsiteData();
+  }
 
   return (
     <Box
       boxSizing="border-box"
       position="relative"
       onMouseOver={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      onMouseLeave={handleMouseLeave}
+      border="1px solid transparent"
       _hover={{
         borderColor: borderColor,
         bg: hoverBg,
         color: hoverColor,
         borderWidth: 1,
         borderRadius: 4,
+      }}
+      onClick={() => {
+        setIsEditing(true);
       }}
       {...props}
     >
@@ -68,9 +91,6 @@ function EditWrapper({ children, ...props }: EditWrapperProps) {
           _hover={{
             color: editIconHoverColor,
             bg: editIconHoverBg,
-          }}
-          onClick={() => {
-            setIsEditing(!isEditing);
           }}
         />
       </Flex>

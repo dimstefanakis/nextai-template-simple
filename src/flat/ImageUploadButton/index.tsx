@@ -27,7 +27,7 @@ const ImageUploadButton = (props: FileUploadProps) => {
   const handleClick = () => inputRef.current?.click();
 
   return (
-    <InputGroup onClick={handleClick}>
+    <InputGroup h="100%" onClick={handleClick}>
       <input
         type={"file"}
         multiple={multiple || false}

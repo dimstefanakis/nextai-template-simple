@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
   Container,
   Stack,
@@ -12,11 +13,28 @@ import {
   createIcon,
   IconProps,
   useColorModeValue,
+  useToken,
 } from "@chakra-ui/react";
+import { IoImageOutline } from "react-icons/io5";
 import addAlpha from "../../utils/addAlpha";
 import EditWrapper from "../../features/EditWrapper";
+import EditImage from "../../features/EditImage";
+import { useWebsiteStore } from "../../store/websiteStore";
+import useAutoFocus from "../../hooks/useAutoFocus";
 
-export default function Home({data}: any) {
+export default function Home({ data }: any) {
+  useAutoFocus();
+  const editWebsiteData = useWebsiteStore(
+    (state: any) => state.editWebsiteData
+  );
+  const editingKey = useWebsiteStore((state: any) => state.editingKey);
+  const imagePlaceHolderColor = useToken("colors", "gray.600");
+  const handleEdit = (key: string, data: any) => {
+    editWebsiteData(key, data);
+  };
+
+  console.log("editingKey", editingKey);
+
   return (
     <Container maxW={"7xl"}>
       <Stack
@@ -52,10 +70,14 @@ export default function Home({data}: any) {
             <Text as={"span"} color={"red.400"}>
               use everywhere!
             </Text> */}
-            <EditWrapper>
+            <EditWrapper editingKey="copy.hero.header">
               <Text
+                id="copy.hero.header"
                 as={"span"}
                 position={"relative"}
+                onInput={(e: React.FormEvent<HTMLElement>) => {
+                  handleEdit("copy.hero.header", e.currentTarget.textContent);
+                }}
                 _after={{
                   content: "''",
                   width: "full",
@@ -71,7 +93,17 @@ export default function Home({data}: any) {
               </Text>
             </EditWrapper>
           </Heading>
-          <Text color={"gray.500"}>{data.copy.hero.subheader}</Text>
+          <EditWrapper editingKey="copy.hero.subheader">
+            <Text
+              id="copy.hero.subheader"
+              color={"gray.500"}
+              onInput={(e: React.FormEvent<HTMLElement>) => {
+                handleEdit("copy.hero.subheader", e.currentTarget.textContent);
+              }}
+            >
+              {data.copy.hero.subheader}
+            </Text>
+          </EditWrapper>
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: "column", sm: "row" }}
@@ -137,17 +169,21 @@ export default function Home({data}: any) {
               top={"50%"}
               transform={"translateX(-50%) translateY(-50%)"}
             /> */}
-            <Image
-              alt={"Hero Image"}
-              fit={"cover"}
-              align={"center"}
-              w={"100%"}
-              h={"100%"}
-              src={
-                data.images.hero_prompt
-                // "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
-              }
-            />
+            {data.images.hero_prompt ? (
+              <Image
+                alt={"Hero Image"}
+                fit={"cover"}
+                align={"center"}
+                w={"100%"}
+                h={"100%"}
+                src={
+                  data.images.hero_prompt
+                  // "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
+                }
+              />
+            ) : (
+              <EditImage dataKey="hero_prompt" />
+            )}
           </Box>
         </Flex>
       </Stack>

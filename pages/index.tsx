@@ -123,61 +123,6 @@ export default function Landing() {
             </Text>{" "}
             Website Builder
           </Heading>
-          {/* <Stack direction={"row"} spacing={4} align={"center"}>
-            <AvatarGroup>
-              {avatars.map((avatar) => (
-                <Avatar
-                  key={avatar.name}
-                  name={avatar.name}
-                  src={avatar.url}
-                  size={size}
-                  position={"relative"}
-                  zIndex={2}
-                  _before={{
-                    content: '""',
-                    width: "full",
-                    height: "full",
-                    rounded: "full",
-                    transform: "scale(1.125)",
-                    bgGradient: "linear(to-bl, red.400,pink.400)",
-                    position: "absolute",
-                    zIndex: -1,
-                    top: 0,
-                    left: 0,
-                  }}
-                />
-              ))}
-            </AvatarGroup>
-            <Text fontFamily={"heading"} fontSize={{ base: "4xl", md: "6xl" }}>
-              +
-            </Text>
-            <Flex
-              align={"center"}
-              justify={"center"}
-              fontFamily={"heading"}
-              fontSize={{ base: "sm", md: "lg" }}
-              bg={"gray.800"}
-              color={"white"}
-              rounded={"full"}
-              minWidth={useBreakpointValue({ base: "44px", md: "60px" })}
-              minHeight={useBreakpointValue({ base: "44px", md: "60px" })}
-              position={"relative"}
-              _before={{
-                content: '""',
-                width: "full",
-                height: "full",
-                rounded: "full",
-                transform: "scale(1.125)",
-                bgGradient: "linear(to-bl, orange.400,yellow.400)",
-                position: "absolute",
-                zIndex: -1,
-                top: 0,
-                left: 0,
-              }}
-            >
-              YOU
-            </Flex>
-          </Stack> */}
         </Stack>
         <Stack
           bg={"gray.50"}
@@ -202,7 +147,7 @@ export default function Landing() {
               </Text>
             </Heading>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              Use the power of AI and create your own app in minutes. Just type
+              Use the power of AI and create your own app in seconds. Just type
               your app idea and we will do the rest.
             </Text>
           </Stack>
@@ -218,7 +163,7 @@ export default function Landing() {
                   color: "gray.500",
                 }}
               />
-              <Textarea
+              {/* <Textarea
                 placeholder="The generated website will have a few images. Describe what you want them to look like. Being as specific as possible yields the best results!"
                 bg={"gray.100"}
                 border={0}
@@ -227,7 +172,7 @@ export default function Landing() {
                 _placeholder={{
                   color: "gray.500",
                 }}
-              />
+              /> */}
               {/* <ImageUploadButton
                 accept={"image/*"}
                 multiple
